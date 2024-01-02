@@ -1,36 +1,41 @@
 #include "get_next_line.h"
 
-
-ssize_t read_function(int fd, char *stash)
+char *get_before_new_line(char *stash)
 {
-	if (stash[0] != '\0')
-		return ft_strlen(stash);
-	else
-		return read(fd, stash, BUFFER_SIZE);
+	int i;
+	i = 0;
+	while ((ft_strchr(stash, '\n') == 0) || (ft_strchr(stash, '\0') == 0))
+		i++;
+	return (stash);
 }
 
-char *malloc_line(char *line)
+char *return_line(int fd, char *stash)
 {
-	if (line[100] != '\0')
-		line = realloc(line,100 + 2);
+	char *line;
+	line = malloc(sizeof(char) * 100);
 	if (line == NULL)
 		return NULL;
+	ssize_t n_read_bytes;
+	int i;
+	i = -1;
+	n_read_bytes = read(fd, stash, BUFFER_SIZE);
+	while (n_read_bytes > 0)
+	{
+		line = ft_strjoin(line, get_before_new_line(stash));
+		stash = stash[current_index];
+	}
+	line = ft_strjoin(line, stash[pos]);
 	return line;
 }
 
 char *get_next_line(int fd)
 {
-    ssize_t return_read;
     char *line;
     static char stash[BUFFER_SIZE] = "\0";
 
     if (fd < 0 || BUFFER_SIZE <= 0)
         return (NULL);
-	line = malloc(sizeof(char) * 100 + 2);
-	if (line = NULL)
-			return NULL;
-	return_read = read_function(fd, stash);
-	line =
+	line = return_line(fd, stash);
 }
 
 #include <stdio.h>

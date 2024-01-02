@@ -25,5 +25,6 @@ void    *ft_memset(void *s, int c, size_t n);
 long unsigned int  ft_strlen2(const char *string);
 long unsigned int  ft_strlen_special(const char *string);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+int	ft_strchr(char *s, int c);
 
 #endif //GNL_GET_NEXT_LINE_H

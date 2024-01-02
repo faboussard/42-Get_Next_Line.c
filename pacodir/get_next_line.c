@@ -6,7 +6,7 @@
 /*   By: faboussa <faboussa@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 16:47:09 by faboussa          #+#    #+#             */
-/*   Updated: 2024/01/02 19:31:17 by faboussa         ###   ########.fr       */
+/*   Updated: 2024/01/02 19:53:39 by faboussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,19 +77,19 @@ char *get_next_line(int fd)
 	static char stash[BUFFER_SIZE] = "\0";
 	static ssize_t n_read_bytes = 0;
 	int pos;
-	char *line = malloc(sizeof(char) * LINE_MAX_SIZE);
-	ssize_t n_read_bytes_prev = 0;
+
+	ssize_t n_read_bytes_prev;
 	char eof = 0;
-	if (line == NULL)
-	{
-		return NULL;
-	}
 	if (current_index == -1)
 	{
 		n_read_bytes = read(fd, stash, BUFFER_SIZE);
+		if (n_read_bytes == -1)
+			return (NULL);
 		current_index = 0;
 	}
-	int count = 0;
+	char *line = malloc(sizeof(char) * LINE_MAX_SIZE);
+	if (line == NULL)
+		return NULL;
 	while ((pos = ft_strchri(stash, '\n', current_index)) == -1 && n_read_bytes == BUFFER_SIZE)
 	{
 		line = ft_concat(line, stash + current_index,
@@ -102,15 +102,11 @@ char *get_next_line(int fd)
 			eof = 1;
 			break;
 		}
+		else if (n_read_bytes == -1){
+			return NULL;
+		}
 		current_index = 0;
-		count++;
 	}
-//	if (n_read_bytes == 0)
-//	{
-//		free(line);
-//		return NULL;
-//	}
-
 
 	if ((pos == -1 && n_read_bytes < BUFFER_SIZE) || eof != 0)
 	{
@@ -119,9 +115,9 @@ char *get_next_line(int fd)
 			free(line);
 			return NULL;
 		}
-		if(BUFFER_SIZE != 1)
+		if (BUFFER_SIZE != 1)
 			line = ft_concat(line, ft_substr(stash, current_index, n_read_bytes),
-						 LINE_MAX_SIZE);
+							 LINE_MAX_SIZE);
 		n_read_bytes = 0;
 		return line;
 	}
@@ -132,8 +128,8 @@ char *get_next_line(int fd)
 	return line;
 }
 
-#include <stdio.h>
-#include <fcntl.h>
+//#include <stdio.h>
+//#include <fcntl.h>
 //
 //int main()
 //{
@@ -149,9 +145,6 @@ char *get_next_line(int fd)
 //	if (fd < 0)
 //		return (EXIT_FAILURE);
 //	printf("fd file is %d\n", fd);
-//	// get_next_line(fd);
-//	//get_next_line(fd);
-//	//get_next_line(fd);
 //
 //	int nb_lines=10;
 //	int i = 0;
@@ -166,23 +159,23 @@ char *get_next_line(int fd)
 //		i++;
 //	}
 //
-////	printf("first line is %s\n", gnl(fd));
-////	printf("second line is %s\n", gnl(fd));
-////	printf("third line is %s\n", gnl(fd));
-////	printf("fourth line is %s\n", gnl(fd));
-////	printf("5th line is %s\n", gnl(fd));
-////	printf("6th line is %s\n", gnl(fd));
-////	printf("7th line is %s\n", gnl(fd));
-////	printf("8th line is %s\n", gnl(fd));
-////        printf("second line is %s", get_next_line(fd));
-////        printf("third line is %s", get_next_line(fd));
-////        printf("fourth line is %s", get_next_line(fd));
-////        printf("fifth line is %s", get_next_line(fd));
-////        printf("sixth line is %s", get_next_line(fd));
-////        printf("seventh line is %s", get_next_line(fd));
-////        printf("eighth line is %s", get_next_line(fd));
-////        printf("ninth line is %s", get_next_line(fd));
+//////	printf("first line is %s\n", gnl(fd));
+//////	printf("second line is %s\n", gnl(fd));
+//////	printf("third line is %s\n", gnl(fd));
+//////	printf("fourth line is %s\n", gnl(fd));
+//////	printf("5th line is %s\n", gnl(fd));
+//////	printf("6th line is %s\n", gnl(fd));
+//////	printf("7th line is %s\n", gnl(fd));
+//////	printf("8th line is %s\n", gnl(fd));
+//////        printf("second line is %s", get_next_line(fd));
+//////        printf("third line is %s", get_next_line(fd));
+//////        printf("fourth line is %s", get_next_line(fd));
+//////        printf("fifth line is %s", get_next_line(fd));
+//////        printf("sixth line is %s", get_next_line(fd));
+//////        printf("seventh line is %s", get_next_line(fd));
+//////        printf("eighth line is %s", get_next_line(fd));
+//////        printf("ninth line is %s", get_next_line(fd));
 //	close(fd);
 //	return (EXIT_SUCCESS);
 //}
-//
+

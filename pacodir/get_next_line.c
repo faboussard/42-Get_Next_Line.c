@@ -19,9 +19,10 @@ char *get_next_line(int fd)
 	static char stash[BUFFER_SIZE] = "\0";
 	static ssize_t n_read_bytes = 0;
 	int pos;
-
-	ssize_t n_read_bytes_prev;
 	char eof = 0;
+	char *substring;
+	ssize_t n_read_bytes_prev;
+//dabord on read
 	if (current_index == -1)
 	{
 		n_read_bytes = read(fd, stash, BUFFER_SIZE);
@@ -29,12 +30,19 @@ char *get_next_line(int fd)
 			return (NULL);
 		current_index = 0;
 	}
+	//on fait le malloc
 	char *line = malloc(sizeof(char) * LINE_MAX_SIZE);
 	if (line == NULL)
 		return NULL;
+
+	//on recherche le backslash n et si on ne le touve pas on incremente line
 	while ((pos = ft_strchri(stash, '\n', current_index)) == -1 && n_read_bytes == BUFFER_SIZE)
 	{
 		line = ft_concat(line, stash + current_index, LINE_MAX_SIZE);
+		if (line == NULL)
+			return NULL;
+
+		// si on na plus rien a lire on va retourner sur ce quon lisait avant
 		n_read_bytes_prev = n_read_bytes;
 		n_read_bytes = read(fd, stash, BUFFER_SIZE);
 		if (n_read_bytes == 0)
@@ -43,12 +51,12 @@ char *get_next_line(int fd)
 			eof = 1;
 			break;
 		}
-		else if (n_read_bytes == -1){
+		else if (n_read_bytes == -1)
 			return NULL;
-		}
 		current_index = 0;
 	}
 
+	//si on ne trouve pas le back slash n et que ce qui a alire est inferieur a buffe size ou que
 	if ((pos == -1 && n_read_bytes < BUFFER_SIZE) || eof != 0)
 	{
 		if (current_index >= n_read_bytes)
@@ -57,14 +65,24 @@ char *get_next_line(int fd)
 			return NULL;
 		}
 		if (BUFFER_SIZE != 1)
-			line = ft_concat(line, ft_substr(stash, current_index, n_read_bytes),
-							 LINE_MAX_SIZE);
+		{
+			substring = ft_substr(stash, current_index, pos - current_index + 1);
+			if (substring == NULL)
+				return NULL;
+			line = ft_concat(line, substring,LINE_MAX_SIZE);
+			free (substring);
+		}
 		n_read_bytes = 0;
-		return line;
+		return (line);
 	}
 
-	line = ft_concat(line, ft_substr(stash, current_index, pos - current_index + 1),
-					 LINE_MAX_SIZE);
+	substring = ft_substr(stash, current_index, pos - current_index + 1);
+	if (substring == NULL)
+		return NULL;
+	line = ft_concat(line, substring, LINE_MAX_SIZE);
+	if (line == NULL)
+		return NULL;
+	free(substring);
 	current_index = pos + 1;
 	return line;
 }
@@ -78,17 +96,17 @@ int main()
 	char *myfile;
 
 	//myfile = "/home/faboussa/gnl2024/giant_line.txt";
-	myfile = "/home/faboussa/gnl2024/giant_line_nl.txt";
+	//myfile = "/home/faboussa/gnl2024/giant_line_nl.txt";
 	//myfile = "/home/faboussa/gnl2024/multiple_nl.txt";
 //myfile = "/home/faboussa/gnl2024/1char.txt";
 	//myfile = "/home/faboussa/gnl2024/bible.txt";
-	//myfile = "/home/faboussa/gnl2024/variable_nls.txt";
+	myfile = "/home/faboussa/gnl2024/variable_nls.txt";
 	fd = open(myfile, O_RDONLY);
 	if (fd < 0)
 		return (EXIT_FAILURE);
 	printf("fd file is %d\n", fd);
 
-	int nb_lines=2;
+	int nb_lines=15;
 	int i = 0;
 	char* line = NULL;
 	while (i < nb_lines)
@@ -97,8 +115,8 @@ int main()
 		if (line != NULL)
 			printf(" line is %s", line);
 		i++;
+		free(line);
 	}
-	free(line);
 
 ////	printf("first line is %s\n", gnl(fd));
 ////	printf("second line is %s\n", gnl(fd));

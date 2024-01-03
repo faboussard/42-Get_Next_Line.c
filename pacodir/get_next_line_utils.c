@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-long unsigned int ft_strlen(const char *string)
+size_t ft_strlen(const char *string)
 {
 	int i;
 	i = 0;
@@ -60,18 +60,67 @@ void ft_bzero(void *s, size_t n)
 		*((unsigned char *) (s + n)) = 0;
 }
 
-int ft_strchri(const char *s, char c, int start_index)
+
+int ft_strchri(char *s, char c, int index)
 {
-	int result = start_index;
-	char *it = (char *) s + start_index;
-	while (*it != '\0' && *it != (char) c)
+	while (index < (ft_strlen(s - 1)))
 	{
-		it++;
-		result++;
+		while (*(s + index) != '\0' && *(s + index) != c)
+		{
+			index++;
+		}
 	}
-	if (*it == (char) c)
-		return result;
+	if (*(s + index) == c)
+		return (index);
 	return -1;
+}
+/*
+char    *ft_strjoin(char const *s1, char const *s2, size_t dstsize)
+{
+	char            *new_string;
+	long unsigned int          i;
+	long unsigned int           j;
+	long unsigned int           k;
+	size_t          total_length;
+
+	k = 1;
+	total_length = ft_strlen(s1) + ft_strlen(s2);
+	if (total_length + 1 >= k  * dstsize)
+		k++;
+	if (k != 1)
+	{
+		new_string = malloc(sizeof(char) * total_length + 1);
+		if (new_string == NULL)
+			return (0);
+	}
+	i = 0;
+	while (i < ft_strlen(s1))
+	{
+		new_string[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (j < ft_strlen(s2))
+	{
+		new_string[i] = s2[j];
+		j++;
+		i++;
+	}
+	new_string[i] = '\0';
+	if (s1 != NULL)
+		free((void *)s1);
+	return (new_string);
+}
+ */
+
+size_t ft_strlen_sub(const char *str, size_t max_length)
+{
+	size_t len = 0;
+	while (len < max_length)
+	{
+		len++;
+	}
+	return len;
 }
 
 char *ft_concat(char *dst, const char *src, size_t dstsize)
@@ -99,36 +148,36 @@ char *ft_concat(char *dst, const char *src, size_t dstsize)
 	dst[dst_len] = '\0';
 	return dst;
 }
-//
-//void *ft_realloc(void *ptr, size_t newsize)
-//{
-//	char *newptr;
-//	size_t cursize;
-//
-//	newptr = NULL;
-//	if (ptr == 0)
-//		return (malloc(newsize));
-//	cursize = sizeof(ptr);
-//	if (newsize <= cursize)
-//		return (ptr);
-//	newptr = malloc(sizeof (char)* newsize);
-//	if (newptr == NULL)
-//		return NULL;
-//	ft_memcpy(ptr, newptr, cursize);
-//	free(ptr);
-//	return (newptr);
-//}
-//
-//void *ft_memcpy(void *dst, const void *src, size_t n)
-//{
-//	unsigned char *oct1;
-//	unsigned char *oct2;
-//
-//	if (dst == src || n == 0)
-//		return (dst);
-//	oct1 = (unsigned char *) dst;
-//	oct2 = (unsigned char *) src;
-//	while (n--)
-//		*oct1++ = *oct2++;
-//	return (dst);
-//}
+
+void *ft_realloc(void *ptr, size_t newsize)
+{
+	char *newptr;
+	size_t cursize;
+
+	newptr = NULL;
+	if (ptr == 0)
+		return (malloc(newsize));
+	cursize = sizeof(ptr);
+	if (newsize <= cursize)
+		return (ptr);
+	newptr = malloc(sizeof (char)* newsize);
+	if (newptr == NULL)
+		return NULL;
+	ft_memcpy(ptr, newptr, cursize);
+	free(ptr);
+	return (newptr);
+}
+
+void *ft_memcpy(void *dst, const void *src, size_t n)
+{
+	unsigned char *oct1;
+	unsigned char *oct2;
+
+	if (dst == src || n == 0)
+		return (dst);
+	oct1 = (unsigned char *) dst;
+	oct2 = (unsigned char *) src;
+	while (n--)
+		*oct1++ = *oct2++;
+	return (dst);
+}

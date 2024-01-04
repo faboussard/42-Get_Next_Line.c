@@ -95,6 +95,13 @@ int main()
 	int fd;
 	char *myfile;
 
+	//myfile = "/home/juba/CLionProjects/gnl/giant_line.txt";
+	//myfile = "/home/juba/CLionProjects/gnl/giant_line_nl.txt";
+	//myfile = "/home/juba/CLionProjects/gnl/multiple_nl.txt";
+//myfile = "/home/juba/CLionProjects/gnl/1char.txt";
+	//myfile = "/home/juba/CLionProjects/gnl/bible.txt";
+	myfile = "/home/juba/CLionProjects/gnl/variable_nls.txt";
+
 	//myfile = "/home/faboussa/gnl2024/giant_line.txt";
 	//myfile = "/home/faboussa/gnl2024/giant_line_nl.txt";
 	//myfile = "/home/faboussa/gnl2024/multiple_nl.txt";

@@ -34,7 +34,7 @@ void    *ft_calloc(size_t nmemb, size_t size);
 void	*ft_realloc(void *ptr, size_t newsize);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char *ft_concat(char *dst, const char* src, size_t dstsize);
-int ft_strchri(char *s, char c, int index);
+int ft_strchri(char *s, char c, size_t index);
 char    *ft_strjoin(char const *s1, char const *s2, size_t dstsize);
 
 

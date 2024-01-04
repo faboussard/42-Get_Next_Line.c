@@ -61,7 +61,7 @@ void ft_bzero(void *s, size_t n)
 }
 
 
-int ft_strchri(char *s, char c, int index)
+int ft_strchri(char *s, char c, size_t index)
 {
 	while (index < (ft_strlen(s - 1)))
 	{
@@ -74,7 +74,7 @@ int ft_strchri(char *s, char c, int index)
 		return (index);
 	return -1;
 }
-/*
+
 char    *ft_strjoin(char const *s1, char const *s2, size_t dstsize)
 {
 	char            *new_string;
@@ -111,17 +111,6 @@ char    *ft_strjoin(char const *s1, char const *s2, size_t dstsize)
 		free((void *)s1);
 	return (new_string);
 }
- */
-
-size_t ft_strlen_sub(const char *str, size_t max_length)
-{
-	size_t len = 0;
-	while (len < max_length)
-	{
-		len++;
-	}
-	return len;
-}
 
 char *ft_concat(char *dst, const char *src, size_t dstsize)
 {
@@ -154,7 +143,6 @@ void *ft_realloc(void *ptr, size_t newsize)
 	char *newptr;
 	size_t cursize;
 
-	newptr = NULL;
 	if (ptr == 0)
 		return (malloc(newsize));
 	cursize = sizeof(ptr);

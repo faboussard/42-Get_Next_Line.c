@@ -107,7 +107,7 @@ int main()
 	//myfile = "/home/faboussa/gnl2024/multiple_nl.txt";
 //myfile = "/home/faboussa/gnl2024/1char.txt";
 	//myfile = "/home/faboussa/gnl2024/bible.txt";
-	myfile = "/home/faboussa/gnl2024/variable_nls.txt";
+//	myfile = "/home/faboussa/gnl2024/variable_nls.txt";
 	fd = open(myfile, O_RDONLY);
 	if (fd < 0)
 		return (EXIT_FAILURE);
@@ -122,9 +122,8 @@ int main()
 		if (line != NULL)
 			printf(" line is %s", line);
 		i++;
-		free(line);
 	}
-
+	free(line);
 ////	printf("first line is %s\n", gnl(fd));
 ////	printf("second line is %s\n", gnl(fd));
 ////	printf("third line is %s\n", gnl(fd));

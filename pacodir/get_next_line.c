@@ -76,13 +76,9 @@ char *get_next_line(int fd)
 		return (line);
 	}
 
-	substring = ft_substr(stash, current_index, pos - current_index + 1);
-	if (substring == NULL)
-		return NULL;
-	line = ft_concat(line, substring, LINE_MAX_SIZE);
+	line = ft_concat(line, "\n", LINE_MAX_SIZE);
 	if (line == NULL)
 		return NULL;
-	free(substring);
 	current_index = pos + 1;
 	return line;
 }
@@ -96,11 +92,11 @@ int main()
 	char *myfile;
 
 	//myfile = "/home/juba/CLionProjects/gnl/giant_line.txt";
-	//myfile = "/home/juba/CLionProjects/gnl/giant_line_nl.txt";
+	myfile = "/home/juba/CLionProjects/gnl/giant_line_nl.txt";
 	//myfile = "/home/juba/CLionProjects/gnl/multiple_nl.txt";
 //myfile = "/home/juba/CLionProjects/gnl/1char.txt";
 	//myfile = "/home/juba/CLionProjects/gnl/bible.txt";
-	myfile = "/home/juba/CLionProjects/gnl/variable_nls.txt";
+	//myfile = "/home/juba/CLionProjects/gnl/variable_nls.txt";
 
 	//myfile = "/home/faboussa/gnl2024/giant_line.txt";
 	//myfile = "/home/faboussa/gnl2024/giant_line_nl.txt";
@@ -113,33 +109,27 @@ int main()
 		return (EXIT_FAILURE);
 	printf("fd file is %d\n", fd);
 
-	int nb_lines=15;
-	int i = 0;
-	char* line = NULL;
-	while (i < nb_lines)
-	{
-		line = get_next_line(fd);
-		if (line != NULL)
-			printf(" line is %s", line);
-		i++;
-	}
-	free(line);
-////	printf("first line is %s\n", gnl(fd));
-////	printf("second line is %s\n", gnl(fd));
-////	printf("third line is %s\n", gnl(fd));
-////	printf("fourth line is %s\n", gnl(fd));
-////	printf("5th line is %s\n", gnl(fd));
-////	printf("6th line is %s\n", gnl(fd));
-////	printf("7th line is %s\n", gnl(fd));
-////	printf("8th line is %s\n", gnl(fd));
-////        printf("second line is %s", get_next_line(fd));
-////        printf("third line is %s", get_next_line(fd));
-////        printf("fourth line is %s", get_next_line(fd));
-////        printf("fifth line is %s", get_next_line(fd));
-////        printf("sixth line is %s", get_next_line(fd));
-////        printf("seventh line is %s", get_next_line(fd));
-////        printf("eighth line is %s", get_next_line(fd));
-////        printf("ninth line is %s", get_next_line(fd));
+//	int nb_lines=15;
+//	int i = 0;
+//	char* line = NULL;
+//	while (i < nb_lines)
+//	{
+//		line = get_next_line(fd);
+//		if (line != NULL)
+//			printf(" line is %s", line);
+//		i++;
+//
+//	}
+//	free(line);
+
+       printf("second line is %s", get_next_line(fd));
+      printf("third line is %s", get_next_line(fd));
+       printf("fourth line is %s", get_next_line(fd));
+        printf("fifth line is %s", get_next_line(fd));
+      printf("sixth line is %s", get_next_line(fd));
+       printf("seventh line is %s", get_next_line(fd));
+      printf("eighth line is %s", get_next_line(fd));
+       printf("ninth line is %s", get_next_line(fd));
 	close(fd);
 	return (EXIT_SUCCESS);
 }

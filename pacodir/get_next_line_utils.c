@@ -14,7 +14,7 @@
 
 size_t ft_strlen(const char *string)
 {
-	int i;
+	size_t i;
 	i = 0;
 	while (string[i])
 		i++;
@@ -75,24 +75,17 @@ int ft_strchri(char *s, char c, size_t index)
 	return -1;
 }
 
-char    *ft_strjoin(char const *s1, char const *s2, size_t dstsize)
+char    *ft_strjoin(char const *s1, char const *s2)
 {
 	char            *new_string;
-	long unsigned int          i;
-	long unsigned int           j;
-	long unsigned int           k;
+	size_t          i;
+	size_t          j;
 	size_t          total_length;
 
-	k = 1;
 	total_length = ft_strlen(s1) + ft_strlen(s2);
-	if (total_length + 1 >= k  * dstsize)
-		k++;
-	if (k != 1)
-	{
-		new_string = malloc(sizeof(char) * total_length + 1);
-		if (new_string == NULL)
-			return (0);
-	}
+	new_string = malloc(sizeof(char) * total_length + 1);
+	if (new_string == NULL)
+		return (0);
 	i = 0;
 	while (i < ft_strlen(s1))
 	{
@@ -107,16 +100,16 @@ char    *ft_strjoin(char const *s1, char const *s2, size_t dstsize)
 		i++;
 	}
 	new_string[i] = '\0';
-	if (s1 != NULL)
-		free((void *)s1);
+//	if (s1 != NULL)
+//		free((void *)s1);
 	return (new_string);
 }
 
 char *ft_concat(char *dst, const char *src, size_t dstsize)
 {
-	unsigned long src_len = ft_strlen(src);
-	unsigned long dst_len = ft_strlen(dst);
-	unsigned long i = 1;
+	size_t src_len = ft_strlen(src);
+	size_t dst_len = ft_strlen(dst);
+	size_t i = 1;
 	char* old_dst = dst;
 	while (src_len + dst_len + 1 >= i * dstsize)
 		i++;

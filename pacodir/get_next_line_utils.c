@@ -80,9 +80,7 @@ char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize)
 {
 	unsigned long dst_len = ft_strlen(dst);
 	unsigned long i;
-	char *old_dst;
 
-	old_dst = dst;
 	i = 1;
 	while (src_len + dst_len + 1 >= i * dstsize)
 		i++;
@@ -90,8 +88,8 @@ char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize)
 		dst = (char *) _realloc(dst, src_len + dst_len, i * dstsize * sizeof(char));
 	if (dst == NULL)
 	{
-		free(old_dst);
-		return NULL;
+		free(dst);
+		return (NULL);
 	}
 	i = 0;
 	while (i < src_len)
@@ -101,7 +99,7 @@ char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize)
 		i++;
 	}
 	dst[dst_len] = '\0';
-	return dst;
+	return (dst);
 }
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
@@ -120,7 +118,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 	if (new_size == old_size)
 		return (ptr);
-	if (new_size == 0 && ptr != NULL)
+	if (new_size == 0)
 	{
 		free(ptr);
 		return (NULL);

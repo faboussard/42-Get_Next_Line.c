@@ -6,7 +6,7 @@
 /*   By: faboussa <faboussa@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:42:31 by faboussa          #+#    #+#             */
-/*   Updated: 2024/01/02 19:43:10 by faboussa         ###   ########.fr       */
+/*   Updated: 2024/01/05 02:46:12 by faboussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #define LINE_MAX_SIZE 1000
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 10
 # endif //BUFFER_SIZE
 
 #include <errno.h>
@@ -32,10 +32,9 @@ long unsigned int  ft_strlen(const char *string);
 void *ft_memcpy(void *dst, const void *src, size_t n);
 void    *ft_calloc(size_t nmemb, size_t size);
 void	*ft_realloc(void *ptr, size_t newsize);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char *ft_concat(char *dst, const char* src, size_t dstsize);
-int ft_strchri(char *s, char c, size_t index);
-char    *ft_strjoin(char const *s1, char const *s2);
+char *ft_substr(char const *s, size_t total_len, unsigned int start, size_t len);
+char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize);
+int ft_strchri(char *s, size_t len, char c, size_t index);
 
 
 #endif //GNL_GET_NEXT_LINE_H

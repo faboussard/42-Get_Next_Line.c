@@ -35,6 +35,6 @@ void	*ft_realloc(void *ptr, size_t newsize);
 char *ft_substr(char const *s, size_t total_len, unsigned int start, size_t len);
 char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize);
 int ft_strchri(char *s, size_t len, char c, size_t index);
-
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 #endif //GNL_GET_NEXT_LINE_H

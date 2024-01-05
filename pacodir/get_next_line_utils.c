@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <malloc.h>
 #include "get_next_line.h"
 
 size_t ft_strlen(const char *string)
@@ -77,15 +78,16 @@ int ft_strchri(char *s, size_t len, char c, size_t index)
 
 char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize)
 {
-//	unsigned long src_len = *(&src + 1) - src;
 	unsigned long dst_len = ft_strlen(dst);
-	unsigned long i = 1;
-	char *old_dst = dst;
+	unsigned long i;
+	char *old_dst;
+
+	old_dst = dst;
+	i = 1;
 	while (src_len + dst_len + 1 >= i * dstsize)
 		i++;
-//	i = src_len + dst_len + 1 / dstsize;
 	if (i != 1)
-		dst = (char *) ft_realloc(dst, i * dstsize * sizeof(char));
+		dst = (char *) _realloc(dst, src_len + dst_len, i * dstsize * sizeof(char));
 	if (dst == NULL)
 	{
 		free(old_dst);
@@ -96,41 +98,43 @@ char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize)
 	{
 		dst[dst_len] = src[i];
 		dst_len++;
-//		src++;
 		i++;
 	}
 	dst[dst_len] = '\0';
 	return dst;
 }
 
-void *ft_realloc(void *ptr, size_t newsize)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *newptr;
-	size_t cursize;
+	char *new;
+	char *temp;
+	unsigned int i;
 
-	if (ptr == 0)
-		return (malloc(newsize));
-	cursize = sizeof(ptr);
-	if (newsize <= cursize)
+	i = 0;
+	if (ptr == NULL)
+	{
+		ptr = malloc(new_size);
+		if (ptr == NULL)
+			return (NULL);
 		return (ptr);
-	newptr = malloc(sizeof(char) * newsize);
-	if (newptr == NULL)
-		return NULL;
-	ft_memcpy(ptr, newptr, cursize);
+	}
+	if (new_size == old_size)
+		return (ptr);
+	if (new_size == 0 && ptr != NULL)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	new = malloc(new_size);
+	if (new == NULL)
+		return (NULL);
+	old_size = (new_size < old_size) ? new_size : old_size;
+	temp = ptr;
+	while (i < old_size)
+	{
+		*(new + i) = *(temp + i);
+		i++;
+	}
 	free(ptr);
-	return (newptr);
-}
-
-void *ft_memcpy(void *dst, const void *src, size_t n)
-{
-	unsigned char *oct1;
-	unsigned char *oct2;
-
-	if (dst == src || n == 0)
-		return (dst);
-	oct1 = (unsigned char *) dst;
-	oct2 = (unsigned char *) src;
-	while (n--)
-		*oct1++ = *oct2++;
-	return (dst);
+	return (new);
 }

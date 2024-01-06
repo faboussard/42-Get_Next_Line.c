@@ -51,7 +51,7 @@ char *get_next_line(int fd)
 	int pos;
 	char *substring;
 	char *line;
-	static int total_read;
+	static ssize_t total_read;
 
 	if (fd < 0)
     {
@@ -64,17 +64,20 @@ char *get_next_line(int fd)
 	{
 		n_read_bytes = read(fd, stash, BUFFER_SIZE);
 		if (n_read_bytes <= 0)
+        {
+            n_read_bytes = 0;
 			return (NULL);
+            }
 		current_index = 0;
 		total_read += n_read_bytes;
 	}
 	if (current_index >= n_read_bytes)
     {
+        n_read_bytes = 0;
         stash[0] = '\0';
         current_index = -1;
         return (NULL);
     }
-//faire ce ca que dans un certain cas pou pas tout  niquer
 	if (ft_strchri(stash, BUFFER_SIZE, '\n', current_index) == -1 && n_read_bytes < BUFFER_SIZE )
 	{
 		if (n_read_bytes >= total_read)
@@ -83,27 +86,28 @@ char *get_next_line(int fd)
 	line = malloc(sizeof(char) * LINE_MAX_SIZE);
 	if (line == NULL)
     {
+        n_read_bytes = 0;
         stash[0] = '\0';
         current_index = -1;
         return (NULL);
     }
 	line[0] = '\0';
 
-	//on recherche le backslash n et si on ne le touve pas on incremente line
 	while ((pos = ft_strchri(stash, BUFFER_SIZE, '\n', current_index)) == -1 && n_read_bytes >= BUFFER_SIZE)
 	{
         line = ft_concat(line, stash + current_index, BUFFER_SIZE - current_index, LINE_MAX_SIZE);
         if (line == NULL)
         {
+            n_read_bytes = 0;
             stash[0] = '\0';
             current_index = -1;
-            free(line);
             return (NULL);
         }
 		n_read_bytes = read(fd, stash, BUFFER_SIZE);
 		total_read += n_read_bytes;
 		if (n_read_bytes < 0)
 		{
+            n_read_bytes = 0;
             stash[0] = '\0';
             current_index = -1;
 			free(line);
@@ -128,7 +132,6 @@ char *get_next_line(int fd)
             stash[0] = '\0';
             current_index = -1;
 			free(substring);
-			free(line);
 			return (NULL);
 		}
 		free(substring);

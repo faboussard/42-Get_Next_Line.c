@@ -85,7 +85,7 @@ char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize)
 	while (src_len + dst_len + 1 >= i * dstsize)
 		i++;
 	if (i != 1)
-		dst = (char *) _realloc(dst, src_len + dst_len, i * dstsize * sizeof(char));
+		dst = (char *) ft_realloc(dst, src_len + dst_len, i * dstsize * sizeof(char));
 	if (dst == NULL)
 		return (NULL);
 	i = 0;
@@ -99,7 +99,7 @@ char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize)
 	return (dst);
 }
 
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void *ft_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *new;
 	char *temp;
@@ -135,4 +135,23 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 	free(ptr);
 	return (new);
+}
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+    size_t			i;
+    unsigned char	*byte_dest;
+    unsigned char	*byte_src;
+
+    byte_dest = (unsigned char *) dest;
+    byte_src = (unsigned char *) src;
+    i = 0;
+    if (dest == NULL && src == NULL)
+        return (dest);
+    while (i < n)
+    {
+        byte_dest[i] = byte_src[i];
+        i++;
+    }
+    return (dest);
 }

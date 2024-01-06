@@ -16,7 +16,7 @@
 #define LINE_MAX_SIZE 1000
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 42
 # endif //BUFFER_SIZE
 
 #include <errno.h>
@@ -33,6 +33,7 @@ void    *ft_calloc(size_t nmemb, size_t size);
 char *ft_substr(char const *s, size_t total_len, unsigned int start, size_t len);
 char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize);
 int ft_strchri(char *s, size_t len, char c, size_t index);
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void *ft_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 #endif //GNL_GET_NEXT_LINE_H

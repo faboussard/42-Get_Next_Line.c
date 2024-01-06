@@ -87,10 +87,7 @@ char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize)
 	if (i != 1)
 		dst = (char *) _realloc(dst, src_len + dst_len, i * dstsize * sizeof(char));
 	if (dst == NULL)
-	{
-		free(dst);
 		return (NULL);
-	}
 	i = 0;
 	while (i < src_len)
 	{
@@ -125,7 +122,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 	new = malloc(new_size);
 	if (new == NULL)
-		return (NULL);
+    {
+        free(ptr);
+        return (NULL);
+    }
 	old_size = (new_size < old_size) ? new_size : old_size;
 	temp = ptr;
 	while (i < old_size)

@@ -67,13 +67,11 @@ int ft_strchri(char *s, size_t len, char c, size_t index)
 {
 
 	while (index < len - 1 && *(s + index) != c)
-	{
 		index++;
-	}
 
 	if (s[index] == c)
 		return (index);
-	return -1;
+	return (-1);
 }
 
 char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize)

@@ -104,7 +104,9 @@ char *get_next_line(int fd)
             return (NULL);
         }
 		n_read_bytes = read(fd, stash, BUFFER_SIZE);
+		//changer ici par total read
 		total_read += n_read_bytes;
+		// sortir ce if ?
 		if (n_read_bytes < 0)
 		{
             n_read_bytes = 0;
@@ -114,9 +116,11 @@ char *get_next_line(int fd)
 			return (NULL);
 		}
 		current_index = 0;
+		if (n_read_bytes == 0)
+			break;
 	}
 
-	//si on ne trouve pas le back slash n et que je suis a la fin du fichier
+	//si on ne trouve pas le back slash n et que je suis a la fin du fichier. preciser ici ? si total read > nread bytes
 	if (pos == -1)
 	{
 		substring = ft_substr(stash, BUFFER_SIZE, current_index, n_read_bytes);
@@ -147,6 +151,8 @@ char *get_next_line(int fd)
 		free(line);
 		return (NULL);
     }
+
+//onc si on na pas trouve le /n ou si on la trouve
 	substring = ft_substr(stash, BUFFER_SIZE, current_index, pos - current_index + 1);
 	if (substring == NULL)
     {
@@ -191,10 +197,10 @@ char *get_next_line(int fd)
 ////myfile = "/home/faboussa/gnl2024/1char.txt";
 //	//myfile = "/home/faboussa/gnl2024/bible.txt";
 ////	myfile = "/home/faboussa/gnl2024/variable_nls.txt";
-//// myfile = "/home/faboussa/gnl2024/43_with_nl.txt";
-//// myfile = "/home/faboussa/gnl2024/41_with_nl.txt";
-////	myfile = "/home/faboussa/gnl2024/multiple_line_no_nl.txt";
-//myfile = "/home/faboussa/gnl2024/read_error.txt";
+// //myfile = "/home/faboussa/gnl2024/43_with_nl.txt";
+// myfile = "/home/faboussa/gnl2024/41_with_nl.txt";
+//	//myfile = "/home/faboussa/gnl2024/multiple_line_no_nl.txt";
+////myfile = "/home/faboussa/gnl2024/read_error.txt";
 //	fd = open(myfile, O_RDONLY);
 //	if (fd < 0)
 //		return (EXIT_FAILURE);

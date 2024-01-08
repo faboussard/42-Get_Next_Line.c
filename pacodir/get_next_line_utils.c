@@ -13,7 +13,7 @@
 #include <malloc.h>
 #include "get_next_line.h"
 
-size_t ft_strlen(const char *string)
+int ft_strlen(const char *string)
 {
 	int i;
 	i = 0;
@@ -30,7 +30,6 @@ char *ft_substr(char const *s, size_t total_len, unsigned int start, size_t len)
 	i = 0;
 	if (!s)
 		return (NULL);
-//	if (start >= ft_strlen(s))
 	if (start >= total_len)
 		return ((char *) ft_calloc(1, sizeof(char)));
 	if (total_len <= start + len)
@@ -61,7 +60,6 @@ void ft_bzero(void *s, size_t n)
 	while (n--)
 		*((unsigned char *) (s + n)) = 0;
 }
-
 
 int ft_strchri(char *s, size_t len, char c, size_t index)
 {
@@ -118,7 +116,7 @@ void *ft_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		free(ptr);
 		return (NULL);
 	}
-	new = malloc(new_size);
+	new = malloc(new_size + 1);
 	if (new == NULL)
     {
         free(ptr);
@@ -126,9 +124,11 @@ void *ft_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
     }
 	old_size = (new_size < old_size) ? new_size : old_size;
 	temp = ptr;
-	while (i < old_size)
+	while (i < new_size)
 	{
-		*(new + i) = *(temp + i);
+		new[i] = temp[i];
+        printf("%d\n", i);
+        printf("%c\n", temp[i + 1]);
 		i++;
 	}
 	free(ptr);

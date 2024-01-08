@@ -28,7 +28,7 @@
 
 void	ft_bzero(void *s, size_t n);
 char *get_next_line(int fd);
-long unsigned int  ft_strlen(const char *string);
+int  ft_strlen(const char *string);
 void    *ft_calloc(size_t nmemb, size_t size);
 char *ft_substr(char const *s, size_t total_len, unsigned int start, size_t len);
 char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize);

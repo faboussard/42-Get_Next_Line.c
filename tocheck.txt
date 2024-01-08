@@ -1,0 +1,3 @@
+ dans ft realloc
+  new[i] = '\0';
+   //necessaire ?

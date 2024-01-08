@@ -109,8 +109,6 @@ void *ft_realloc(void *ptr, unsigned int new_size)
 			return (NULL);
 		return (ptr);
 	}
-	//if (new_size == old_size)
-	//	return (ptr);
 	if (new_size == 0)
 	{
 		free(ptr);
@@ -123,32 +121,10 @@ void *ft_realloc(void *ptr, unsigned int new_size)
         return (NULL);
     }
 	temp = ptr;
-	while (i < new_size && temp[i] != '\0')
-	{
-		new[i] = temp[i];
-       // printf("%d\n", i);
-      //  printf("%c\n", temp[i + 1]);
-		i++;
-	}
-	free(ptr);
-	return (new);
-}
-
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-    size_t			i;
-    unsigned char	*byte_dest;
-    unsigned char	*byte_src;
-
-    byte_dest = (unsigned char *) dest;
-    byte_src = (unsigned char *) src;
-    i = 0;
-    if (dest == NULL && src == NULL)
-        return (dest);
-    while (i < n)
-    {
-        byte_dest[i] = byte_src[i];
+    while (i < new_size && (new[i] = temp[i]) != '\0')
         i++;
-    }
-    return (dest);
+   new[i] = '\0';
+   //necessaire ?
+    free(ptr);
+	return (new);
 }

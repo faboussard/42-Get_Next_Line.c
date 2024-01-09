@@ -6,7 +6,7 @@
 /*   By: faboussa <faboussa@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 16:47:09 by faboussa          #+#    #+#             */
-/*   Updated: 2024/01/05 02:46:51 by faboussa         ###   ########.fr       */
+/*   Updated: 2024/01/09 18:16:25 by faboussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
 void *ft_free_all(char *s, char *stash, int *index, ssize_t *n_read_bytes)
 {
@@ -64,7 +67,6 @@ char *get_next_line(int fd)
     int pos;
     char *substring;
     char *line;
-    static ssize_t total_read;
 
     if (fd < 0 || BUFFER_SIZE <= 0)
         return (NULL);
@@ -72,39 +74,24 @@ char *get_next_line(int fd)
     {
         n_read_bytes = read(fd, stash, BUFFER_SIZE);
         if (n_read_bytes <= 0)
-        {
-            int i = 0;
-            while (i <= BUFFER_SIZE)
-                stash[i++] = '\0';
             return (current_index = -1, NULL);
-        }
         current_index = 0;
-        total_read += n_read_bytes;
     }
     if (current_index >= n_read_bytes)
-    {
-        int i = 0;
-        while (i <= BUFFER_SIZE)
-            stash[i++] = '\0';
         return (n_read_bytes = 0, current_index = -1, NULL);
-    }
-    if (ft_strchri(stash, BUFFER_SIZE, '\n', current_index) == -1 && n_read_bytes < BUFFER_SIZE)
-    {
-        if (n_read_bytes >= total_read)
-            n_read_bytes = total_read;
-    }
     line = malloc(sizeof(char) * LINE_MAX_SIZE);
     if (line == NULL)
-        ft_free_all(line, stash, &current_index, &n_read_bytes);
+        return ft_free_all(line, stash, &current_index, &n_read_bytes);
     line[0] = '\0';
+
+	//une fonction
     //jusquau backslash n et tant quon nest pas a la fin du fichier ,  on concat et on remet le current index a 0. si on arrive a la fin d fichier on break
     while ((pos = ft_strchri(stash, BUFFER_SIZE, '\n', current_index)) == -1 && n_read_bytes >= BUFFER_SIZE)
     {
         line = ft_concat(line, stash + current_index, BUFFER_SIZE - current_index, LINE_MAX_SIZE);
         if (line == NULL)
-            ft_free_all(line, stash, &current_index, &n_read_bytes);
+            return ft_free_all(line, stash, &current_index, &n_read_bytes);
         n_read_bytes = read(fd, stash, BUFFER_SIZE);
-        total_read += n_read_bytes;
         if (n_read_bytes < 0) //free sqns nread bytes
             return (free(line), current_index = -1, NULL);
         current_index = 0;
@@ -114,39 +101,33 @@ char *get_next_line(int fd)
     //si on ne  trouve pas le back slash n et que je suis a la fin du fichier, je mets tout
     if (pos == -1)
     {
-        substring = ft_substr(stash, BUFFER_SIZE, current_index, n_read_bytes);
+        substring = ft_substr(stash, BUFFER_SIZE, current_index, n_read_bytes - current_index);
         if (substring == NULL)
-            ft_free_all(substring, stash, &current_index, &n_read_bytes);
+            return ft_free_all(substring, stash, &current_index, &n_read_bytes);
+
+		//
         line = ft_concat(line, substring, ft_strlen(substring), LINE_MAX_SIZE);
         if (line == NULL)
-            ft_free_all(substring, stash, &current_index, &n_read_bytes);
+            return ft_free_all(substring, stash, &current_index, &n_read_bytes);
         free(substring);
+		//
         n_read_bytes = 0;
         return (cook_line(line, stash, &current_index, &n_read_bytes));
     }
     //si jai trouve le backslash n ou que je suis pas a la fin du fichier
     if (n_read_bytes <= 0)
         return (free(line), NULL);
-    substring = ft_substr(stash, BUFFER_SIZE, current_index, pos - current_index + 1);
-    if (substring == NULL)
-        ft_free_all(line, stash, &current_index, &n_read_bytes);
 
-    //pour sassurer quon est a la fin du fichier et qun imprime pas trop
-    if (n_read_bytes < ft_strlen(substring))
-    {
-        line = ft_concat(line, substring, ft_strlen(substring) - (ft_strlen(substring) - n_read_bytes), LINE_MAX_SIZE);
-        if (line == NULL)
-            ft_free_all(substring, stash, &current_index, &n_read_bytes);
-        free(substring);
-        n_read_bytes = -1;
-        return (cook_line(line, stash, &current_index, &n_read_bytes));
-    }
+    substring = ft_substr(stash, BUFFER_SIZE, current_index, MIN(n_read_bytes, pos - current_index + 1));
+    if (substring == NULL)
+        return ft_free_all(line, stash, &current_index, &n_read_bytes);
+
+	//
     line = ft_concat(line, substring, ft_strlen(substring), LINE_MAX_SIZE);
     if (line == NULL)
-        ft_free_all(substring, stash, &current_index, &n_read_bytes);
+        return ft_free_all(substring, stash, &current_index, &n_read_bytes);
     free(substring);
     current_index = pos + 1;
-    total_read = total_read - ft_strlen(line);
     return (cook_line(line, stash, &current_index, &n_read_bytes));
 }
 
@@ -157,20 +138,22 @@ char *get_next_line(int fd)
 //{
 //    int fd;
 //    char *myfile;
-//
-//    //	myfile = "/home/juba/CLionProjects/gnl/giant_line.txt";
-//    //	myfile = "/home/juba/CLionProjects/gnl/giant_line_nl.txt";
-//    //	myfile = "/home/juba/CLionProjects/gnl/multiple_nl.txt";
-//    //    myfile = "/home/juba/CLionProjects/gnl/1char.txt";
-//    //myfile = "/home/juba/CLionProjects/gnl/read_error.txt";
-//    //	myfile = "/home/juba/CLionProjects/gnl/bible.txt";
-//    //	myfile = "/home/juba/CLionProjects/gnl/variable_nls.txt";
+////
+//    	myfile = "/home/juba/CLionProjects/gnl/giant_line.txt";
+////    	myfile = "/home/juba/CLionProjects/gnl/giant_line_nl.txt";
+//    	myfile = "/home/juba/CLionProjects/gnl/multiple_nl.txt";
+//        myfile = "/home/juba/CLionProjects/gnl/1char.txt";
+//    myfile = "/home/juba/CLionProjects/gnl/read_error.txt";
+////    	myfile = "/home/juba/CLionProjects/gnl/bible.txt";
+//	 	myfile = "/home/juba/CLionProjects/gnl/41_with_nl.txt";
+//	myfile = "/home/juba/CLionProjects/gnl/multiple_line_no_nl.txt";
+//    	myfile = "/home/juba/CLionProjects/gnl/variable_nls.txt";
 //
 //    //	myfile = "/home/faboussa/gnl2024/giant_line.txt";
 //    //	myfile = "/home/faboussa/gnl2024/giant_line_nl.txt";
 //    // myfile = "/home/faboussa/gnl2024/big_line_no_nl.txt";
 //    //	myfile = "/home/faboussa/gnl2024/multiple_nl.txt";
-//    myfile = "/home/faboussa/gnl2024/1char.txt";
+//    //myfile = "/home/faboussa/gnl2024/1char.txt";
 //    //myfile = "/home/faboussa/gnl2024/bible.txt";
 //    //	myfile = "/home/faboussa/gnl2024/variable_nls.txt";
 //    //myfile = "/home/faboussa/gnl2024/43_with_nl.txt";

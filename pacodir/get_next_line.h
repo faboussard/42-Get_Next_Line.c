@@ -6,7 +6,7 @@
 /*   By: faboussa <faboussa@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:42:31 by faboussa          #+#    #+#             */
-/*   Updated: 2024/01/09 17:53:57 by faboussa         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:15:47 by faboussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize);
 int ft_strchri(const char *s, size_t len, char c, size_t index);
 void *ft_realloc(void *ptr, unsigned int new_size);
 void *ft_free_all(char *s, char *stash, int *index, ssize_t *n_read_bytes);
-char *cook_line(char *s, char *s3, int *a, ssize_t *n_read_bytes);
+char *cook_line(char *s);
 
 #endif //GNL_GET_NEXT_LINE_H

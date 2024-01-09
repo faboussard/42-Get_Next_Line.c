@@ -35,18 +35,22 @@ void *ft_free_all(char *s, char *stash, int *index, ssize_t *n_read_bytes)
     return (NULL);
 }
 
-char *cook_line(char *s, char *s3, int *a)
+char *cook_line(char *s, char *s3, int *a, ssize_t *n_read_bytes)
 {
-    int size = ft_strlen(s);
-    char *s2 = malloc(size + 1);
+    int     size;
+    char    *s2;
+    int     i;
+
+    i = 0;
+    size = ft_strlen(s);
+    s2 = malloc(size + 1);
     if (s2 == NULL)
+        ft_free_all(s, s3, a, n_read_bytes);
+    while (i < size)
     {
-        s3[0] = '\0';
-        *a = -1;
-        free(s);
-        return (NULL);
+        s2[i] = s[i];
+        i++;
     }
-    memcpy(s2, s, size);
     s2[size] = '\0';
     free(s);
     return (s2);
@@ -118,7 +122,7 @@ char *get_next_line(int fd)
             ft_free_all(substring, stash, &current_index, &n_read_bytes);
         free(substring);
         n_read_bytes = 0;
-        return (cook_line(line, stash, &current_index));
+        return (cook_line(line, stash, &current_index, &n_read_bytes));
     }
     //si jai trouve le backslash n ou que je suis pas a la fin du fichier
     if (n_read_bytes <= 0)
@@ -135,7 +139,7 @@ char *get_next_line(int fd)
             ft_free_all(substring, stash, &current_index, &n_read_bytes);
         free(substring);
         n_read_bytes = -1;
-        return (cook_line(line, stash, &current_index));
+        return (cook_line(line, stash, &current_index, &n_read_bytes));
     }
     line = ft_concat(line, substring, ft_strlen(substring), LINE_MAX_SIZE);
     if (line == NULL)
@@ -143,7 +147,7 @@ char *get_next_line(int fd)
     free(substring);
     current_index = pos + 1;
     total_read = total_read - ft_strlen(line);
-    return (cook_line(line, stash, &current_index));
+    return (cook_line(line, stash, &current_index, &n_read_bytes));
 }
 
 #include <stdio.h>

@@ -26,12 +26,17 @@ char *ft_substr(char const *s, size_t total_len, unsigned int start, size_t len)
 {
     char *substr;
     size_t i;
+    char *res;
 
     i = 0;
-    if (!s)
-        return (NULL);
     if (start >= total_len)
-        return ((char *) ft_calloc(1, sizeof(char)));
+    {
+        //res = malloc(1 * sizeof(char));
+        res = NULL;
+        if (res == NULL)
+            return NULL;
+        return (res);
+    }
     if (total_len <= start + len)
         substr = malloc(sizeof(char) * (total_len - start + 1));
     else
@@ -42,23 +47,6 @@ char *ft_substr(char const *s, size_t total_len, unsigned int start, size_t len)
         substr[i++] = s[start++];
     substr[i] = '\0';
     return (substr);
-}
-
-void *ft_calloc(size_t count, size_t size)
-{
-    void *res;
-
-    res = malloc(size * count);
-    if (!res)
-        return (0);
-    ft_bzero(res, size * count);
-    return (res);
-}
-
-void ft_bzero(void *s, size_t n)
-{
-    while (n--)
-        *((unsigned char *) (s + n)) = 0;
 }
 
 int ft_strchri(const char *s, size_t len, char c, size_t index)

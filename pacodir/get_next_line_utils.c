@@ -15,116 +15,107 @@
 
 int ft_strlen(const char *string)
 {
-	int i;
-	i = 0;
-	while (string[i])
-		i++;
-	return (i);
+    int i;
+    i = 0;
+    while (string[i])
+        i++;
+    return (i);
 }
 
 char *ft_substr(char const *s, size_t total_len, unsigned int start, size_t len)
 {
-	char *substr;
-	size_t i;
+    char *substr;
+    size_t i;
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	if (start >= total_len)
-		return ((char *) ft_calloc(1, sizeof(char)));
-	if (total_len <= start + len)
-		substr = malloc(sizeof(char) * (total_len - start + 1));
-	else
-		substr = malloc(sizeof(char) * (len + 1));
-	if (!substr)
-		return (NULL);
-	while (start < total_len && i < len)
-		substr[i++] = s[start++];
-	substr[i] = '\0';
-	return (substr);
+    i = 0;
+    if (!s)
+        return (NULL);
+    if (start >= total_len)
+        return ((char *) ft_calloc(1, sizeof(char)));
+    if (total_len <= start + len)
+        substr = malloc(sizeof(char) * (total_len - start + 1));
+    else
+        substr = malloc(sizeof(char) * (len + 1));
+    if (!substr)
+        return (NULL);
+    while (start < total_len && i < len)
+        substr[i++] = s[start++];
+    substr[i] = '\0';
+    return (substr);
 }
 
 void *ft_calloc(size_t count, size_t size)
 {
-	void *res;
+    void *res;
 
-	res = malloc(size * count);
-	if (!res)
-		return (0);
-	ft_bzero(res, size * count);
-	return (res);
+    res = malloc(size * count);
+    if (!res)
+        return (0);
+    ft_bzero(res, size * count);
+    return (res);
 }
 
 void ft_bzero(void *s, size_t n)
 {
-	while (n--)
-		*((unsigned char *) (s + n)) = 0;
+    while (n--)
+        *((unsigned char *) (s + n)) = 0;
 }
 
-int ft_strchri(char *s, size_t len, char c, size_t index)
+int ft_strchri(const char *s, size_t len, char c, size_t index)
 {
 
-	while (index < len - 1 && *(s + index) != c)
-		index++;
+    while (index < len - 1 && *(s + index) != c)
+        index++;
 
-	if (s[index] == c)
-		return (index);
-	return (-1);
+    if (s[index] == c)
+        return (index);
+    return (-1);
 }
 
 char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize)
 {
-	unsigned long dst_len = ft_strlen(dst);
-	unsigned long i;
+    unsigned long dst_len = ft_strlen(dst);
+    unsigned long i;
 
-	i = 1;
-	while (src_len + dst_len + 1 >= i * dstsize)
-		i++;
-	if (i != 1)
-		dst = (char *) ft_realloc(dst,  i * dstsize + 1);
-	if (dst == NULL)
-		return (NULL);
-	i = 0;
-	while (i < src_len)
-	{
-		dst[dst_len] = src[i];
-		dst_len++;
-		i++;
-	}
-	dst[dst_len] = '\0';
-	return (dst);
+    i = 1;
+    while (src_len + dst_len + 1 >= i * dstsize)
+        i++;
+    if (i != 1)
+        dst = (char *) ft_realloc(dst, i * dstsize + 1);
+    if (dst == NULL)
+        return (NULL);
+    i = 0;
+    while (i < src_len)
+    {
+        dst[dst_len] = src[i];
+        dst_len++;
+        i++;
+    }
+    dst[dst_len] = '\0';
+    return (dst);
 }
 
 void *ft_realloc(void *ptr, unsigned int new_size)
 {
-	char *new;
-	char *temp;
-	unsigned int i;
+    char *new;
+    char *temp;
+    unsigned int i;
 
-	i = 0;
-	if (ptr == NULL)
-	{
-		ptr = malloc(new_size);
-		if (ptr == NULL)
-			return (NULL);
-		return (ptr);
-	}
-	if (new_size == 0)
-	{
-		free(ptr);
-		return (NULL);
-	}
-	new = malloc(new_size + 1);
-	if (new == NULL)
+    i = 0;
+    if (ptr == NULL)
     {
-        free(ptr);
-        return (NULL);
+        ptr = malloc(new_size);
+        if (ptr == NULL)
+            return (NULL);
+        return (ptr);
     }
-	temp = ptr;
+    if (new_size == 0)
+        return (free(ptr), NULL);
+    new = malloc(new_size + 1);
+    if (new == NULL)
+        return (free(ptr), NULL);
+    temp = ptr;
     while (i < new_size && (new[i] = temp[i]) != '\0')
         i++;
-   new[i] = '\0';
-   //necessaire ?
-    free(ptr);
-	return (new);
+    return (free(ptr), new);
 }

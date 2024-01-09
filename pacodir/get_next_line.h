@@ -32,7 +32,7 @@ int  ft_strlen(const char *string);
 void    *ft_calloc(size_t nmemb, size_t size);
 char *ft_substr(char const *s, size_t total_len, unsigned int start, size_t len);
 char *ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize);
-int ft_strchri(char *s, size_t len, char c, size_t index);
+int ft_strchri(const char *s, size_t len, char c, size_t index);
 void *ft_realloc(void *ptr, unsigned int new_size);
 void *ft_free_all(char *s, char *stash, int *index, ssize_t *n_read_bytes);
 

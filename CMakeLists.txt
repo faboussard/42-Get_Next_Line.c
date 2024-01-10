@@ -6,7 +6,11 @@ set(CMAKE_C_STANDARD 99)
 #set(CMAKE_C_FLAGS "-fsanitize=address")
 
 add_executable(gnl
-        pacodir/get_next_line.c
+       # pacodir/get_next_line.c
+        #pacodir/get_next_line.h
+        #pacodir/get_next_line_utils.c
+        pacodir/main.c
+        pacodir/get_next_line_bonus.c
         pacodir/get_next_line.h
-        pacodir/get_next_line_utils.c
+        pacodir/get_next_line_utils_bonus.c
 )

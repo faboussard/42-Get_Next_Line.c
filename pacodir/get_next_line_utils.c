@@ -106,4 +106,3 @@ void *ft_realloc(void *ptr, unsigned int new_size)
         i++;
     return (free(ptr), new);
 }
-

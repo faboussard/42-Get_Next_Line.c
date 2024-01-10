@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -38,4 +38,4 @@ int		ft_stash(const int action, char (*stash)[BUFFER_SIZE],
 			size_t current_index);
 char	*init_line(int fd, ssize_t *n_read);
 
-#endif // GET_NEXT_LINE_H
+#endif // GET_NEXT_LINE_BONUS_H

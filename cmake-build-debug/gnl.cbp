@@ -76,19 +76,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/faboussa/gnl2024/pacodir/get_next_line.c">
+			<Option target="gnl"/>
+		</Unit>
 		<Unit filename="/home/faboussa/gnl2024/pacodir/get_next_line.h">
 			<Option target="gnl"/>
 		</Unit>
-		<Unit filename="/home/faboussa/gnl2024/pacodir/get_next_line_bonus.c">
-			<Option target="gnl"/>
-		</Unit>
-		<Unit filename="/home/faboussa/gnl2024/pacodir/get_next_line_bonus.h">
-			<Option target="gnl"/>
-		</Unit>
-		<Unit filename="/home/faboussa/gnl2024/pacodir/get_next_line_utils_bonus.c">
-			<Option target="gnl"/>
-		</Unit>
-		<Unit filename="/home/faboussa/gnl2024/pacodir/main.c">
+		<Unit filename="/home/faboussa/gnl2024/pacodir/get_next_line_utils.c">
 			<Option target="gnl"/>
 		</Unit>
 		<Unit filename="/home/faboussa/gnl2024/CMakeLists.txt">

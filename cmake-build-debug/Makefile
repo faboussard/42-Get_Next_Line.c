@@ -129,77 +129,53 @@ gnl/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/build
 .PHONY : gnl/fast
 
-pacodir/get_next_line_bonus.o: pacodir/get_next_line_bonus.c.o
-.PHONY : pacodir/get_next_line_bonus.o
+pacodir/get_next_line.o: pacodir/get_next_line.c.o
+.PHONY : pacodir/get_next_line.o
 
 # target to build an object file
-pacodir/get_next_line_bonus.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/get_next_line_bonus.c.o
-.PHONY : pacodir/get_next_line_bonus.c.o
+pacodir/get_next_line.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/get_next_line.c.o
+.PHONY : pacodir/get_next_line.c.o
 
-pacodir/get_next_line_bonus.i: pacodir/get_next_line_bonus.c.i
-.PHONY : pacodir/get_next_line_bonus.i
+pacodir/get_next_line.i: pacodir/get_next_line.c.i
+.PHONY : pacodir/get_next_line.i
 
 # target to preprocess a source file
-pacodir/get_next_line_bonus.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/get_next_line_bonus.c.i
-.PHONY : pacodir/get_next_line_bonus.c.i
+pacodir/get_next_line.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/get_next_line.c.i
+.PHONY : pacodir/get_next_line.c.i
 
-pacodir/get_next_line_bonus.s: pacodir/get_next_line_bonus.c.s
-.PHONY : pacodir/get_next_line_bonus.s
+pacodir/get_next_line.s: pacodir/get_next_line.c.s
+.PHONY : pacodir/get_next_line.s
 
 # target to generate assembly for a file
-pacodir/get_next_line_bonus.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/get_next_line_bonus.c.s
-.PHONY : pacodir/get_next_line_bonus.c.s
+pacodir/get_next_line.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/get_next_line.c.s
+.PHONY : pacodir/get_next_line.c.s
 
-pacodir/get_next_line_utils_bonus.o: pacodir/get_next_line_utils_bonus.c.o
-.PHONY : pacodir/get_next_line_utils_bonus.o
+pacodir/get_next_line_utils.o: pacodir/get_next_line_utils.c.o
+.PHONY : pacodir/get_next_line_utils.o
 
 # target to build an object file
-pacodir/get_next_line_utils_bonus.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/get_next_line_utils_bonus.c.o
-.PHONY : pacodir/get_next_line_utils_bonus.c.o
+pacodir/get_next_line_utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o
+.PHONY : pacodir/get_next_line_utils.c.o
 
-pacodir/get_next_line_utils_bonus.i: pacodir/get_next_line_utils_bonus.c.i
-.PHONY : pacodir/get_next_line_utils_bonus.i
-
-# target to preprocess a source file
-pacodir/get_next_line_utils_bonus.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/get_next_line_utils_bonus.c.i
-.PHONY : pacodir/get_next_line_utils_bonus.c.i
-
-pacodir/get_next_line_utils_bonus.s: pacodir/get_next_line_utils_bonus.c.s
-.PHONY : pacodir/get_next_line_utils_bonus.s
-
-# target to generate assembly for a file
-pacodir/get_next_line_utils_bonus.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/get_next_line_utils_bonus.c.s
-.PHONY : pacodir/get_next_line_utils_bonus.c.s
-
-pacodir/main.o: pacodir/main.c.o
-.PHONY : pacodir/main.o
-
-# target to build an object file
-pacodir/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/main.c.o
-.PHONY : pacodir/main.c.o
-
-pacodir/main.i: pacodir/main.c.i
-.PHONY : pacodir/main.i
+pacodir/get_next_line_utils.i: pacodir/get_next_line_utils.c.i
+.PHONY : pacodir/get_next_line_utils.i
 
 # target to preprocess a source file
-pacodir/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/main.c.i
-.PHONY : pacodir/main.c.i
+pacodir/get_next_line_utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.i
+.PHONY : pacodir/get_next_line_utils.c.i
 
-pacodir/main.s: pacodir/main.c.s
-.PHONY : pacodir/main.s
+pacodir/get_next_line_utils.s: pacodir/get_next_line_utils.c.s
+.PHONY : pacodir/get_next_line_utils.s
 
 # target to generate assembly for a file
-pacodir/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/main.c.s
-.PHONY : pacodir/main.c.s
+pacodir/get_next_line_utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gnl.dir/build.make CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.s
+.PHONY : pacodir/get_next_line_utils.c.s
 
 # Help Target
 help:
@@ -210,15 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... gnl"
-	@echo "... pacodir/get_next_line_bonus.o"
-	@echo "... pacodir/get_next_line_bonus.i"
-	@echo "... pacodir/get_next_line_bonus.s"
-	@echo "... pacodir/get_next_line_utils_bonus.o"
-	@echo "... pacodir/get_next_line_utils_bonus.i"
-	@echo "... pacodir/get_next_line_utils_bonus.s"
-	@echo "... pacodir/main.o"
-	@echo "... pacodir/main.i"
-	@echo "... pacodir/main.s"
+	@echo "... pacodir/get_next_line.o"
+	@echo "... pacodir/get_next_line.i"
+	@echo "... pacodir/get_next_line.s"
+	@echo "... pacodir/get_next_line_utils.o"
+	@echo "... pacodir/get_next_line_utils.i"
+	@echo "... pacodir/get_next_line_utils.s"
 .PHONY : help
 
 

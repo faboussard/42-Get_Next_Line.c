@@ -8,9 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/faboussa/gnl2024/pacodir/get_next_line_bonus.c" "CMakeFiles/gnl.dir/pacodir/get_next_line_bonus.c.o" "gcc" "CMakeFiles/gnl.dir/pacodir/get_next_line_bonus.c.o.d"
-  "/home/faboussa/gnl2024/pacodir/get_next_line_utils_bonus.c" "CMakeFiles/gnl.dir/pacodir/get_next_line_utils_bonus.c.o" "gcc" "CMakeFiles/gnl.dir/pacodir/get_next_line_utils_bonus.c.o.d"
-  "/home/faboussa/gnl2024/pacodir/main.c" "CMakeFiles/gnl.dir/pacodir/main.c.o" "gcc" "CMakeFiles/gnl.dir/pacodir/main.c.o.d"
+  "/home/faboussa/gnl2024/pacodir/get_next_line.c" "CMakeFiles/gnl.dir/pacodir/get_next_line.c.o" "gcc" "CMakeFiles/gnl.dir/pacodir/get_next_line.c.o.d"
+  "/home/faboussa/gnl2024/pacodir/get_next_line_utils.c" "CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o" "gcc" "CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

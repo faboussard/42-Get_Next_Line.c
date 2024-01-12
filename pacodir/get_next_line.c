@@ -104,7 +104,7 @@ char	*init_line(int fd, ssize_t *n_read)
 
 char	*get_next_line(int fd)
 {
-	static char	stash[BUFFER_SIZE];
+	static char	stash[ABS(BUFFER_SIZE)];
 	int			current_index;
 	int			pos;
 	char		*line;
@@ -129,7 +129,8 @@ char	*get_next_line(int fd)
 	return (cook_line(line));
 }
 
-
+#include <stdio.h>
+#include <fcntl.h>
 int main()
 {
 	int fd;

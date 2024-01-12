@@ -26,8 +26,10 @@
 # define EMPTY 3
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 0
+#  define BUFFER_SIZE 1
 # endif //BUFFER_SIZE
+
+#define ABS(a) a < 0 ? -a : a
 
 char	*get_next_line(int fd);
 int		ft_strlen(const char *string);

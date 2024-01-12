@@ -1,1 +1,1 @@
-/usr/bin/cc -g CMakeFiles/gnl.dir/pacodir/main.c.o CMakeFiles/gnl.dir/pacodir/get_next_line_bonus.c.o CMakeFiles/gnl.dir/pacodir/get_next_line_utils_bonus.c.o -o gnl 
+/usr/bin/cc -g CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o CMakeFiles/gnl.dir/pacodir/get_next_line.c.o -o gnl 

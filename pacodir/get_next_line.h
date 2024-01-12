@@ -15,6 +15,9 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+//enlever pour exam
+#include <fcntl.h>
+#include <stdio.h>
 
 # define LINE_MAX_SIZE 50000
 
@@ -23,7 +26,7 @@
 # define EMPTY 3
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 0
 # endif //BUFFER_SIZE
 
 char	*get_next_line(int fd);

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <malloc.h>
 
 int	ft_strlen(const char *string)
 {

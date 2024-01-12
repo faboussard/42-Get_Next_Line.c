@@ -36,7 +36,9 @@ char	*cook_line(char *s)
 int	ft_stash(const int action, char (*stash)[BUFFER_SIZE], size_t current_index)
 {
 	size_t	i;
+	size_t is_BUFFER_SIZE;
 
+	is_BUFFER_SIZE = BUFFER_SIZE;
 	i = 0;
 	if (action == SET_INDEX)
 	{
@@ -47,11 +49,11 @@ int	ft_stash(const int action, char (*stash)[BUFFER_SIZE], size_t current_index)
 	{
 		while ((*stash)[i] == '\0')
 			i++;
-		return (i % BUFFER_SIZE);
+		return (i % is_BUFFER_SIZE);
 	}
 	else if (action == EMPTY)
 	{
-		while (i < BUFFER_SIZE)
+		while (i < is_BUFFER_SIZE)
 			if ((*stash)[i++] != '\0')
 				return (0);
 		return (1);
@@ -127,59 +129,58 @@ char	*get_next_line(int fd)
 	return (cook_line(line));
 }
 
-//int main()
-//{
-//      int fd;
-//      char *myfile;
+
+int main()
+{
+	int fd;
+	char *myfile;
+
 //
-////
-////    myfile = "/home/juba/CLionProjects/gnl/giant_line.txt";
-////            myfile = "/home/juba/CLionProjects/gnl/giant_line_nl.txt";
-////    myfile = "/home/juba/CLionProjects/gnl/multiple_nl.txt";
-////    myfile = "/home/juba/CLionProjects/gnl/1char.txt";
-////    myfile = "/home/juba/CLionProjects/gnl/read_error.txt";
-////            myfile = "/home/juba/CLionProjects/gnl/bible.txt";
-////            myfile = "/home/juba/CLionProjects/gnl/only_nl.txt";
-////    myfile = "/home/juba/CLionProjects/gnl/41_with_nl.txt";
-////    myfile = "/home/juba/CLionProjects/gnl/multiple_line_no_nl.txt";
+//    myfile = "/home/juba/CLionProjects/gnl/giant_line.txt";
+//            myfile = "/home/juba/CLionProjects/gnl/giant_line_nl.txt";
+//    myfile = "/home/juba/CLionProjects/gnl/multiple_nl.txt";
+//    myfile = "/home/juba/CLionProjects/gnl/1char.txt";
+//    myfile = "/home/juba/CLionProjects/gnl/read_error.txt";
+//            myfile = "/home/juba/CLionProjects/gnl/bible.txt";
+//            myfile = "/home/juba/CLionProjects/gnl/only_nl.txt";
+//    myfile = "/home/juba/CLionProjects/gnl/41_with_nl.txt";
+//    myfile = "/home/juba/CLionProjects/gnl/multiple_line_no_nl.txt";
 //      myfile = "/home/juba/CLionProjects/gnl/variable_nls.txt";
-//
-//      //      myfile = "/home/faboussa/gnl2024/giant_line.txt";
-//      //      myfile = "/home/faboussa/gnl2024/giant_line_nl.txt";
-//      // myfile = "/home/faboussa/gnl2024/big_line_no_nl.txt";
-//      //      myfile = "/home/faboussa/gnl2024/multiple_nl.txt";
-//      //myfile = "/home/faboussa/gnl2024/1char.txt";
-//      //myfile = "/home/faboussa/gnl2024/bible.txt";
-//      //      myfile = "/home/faboussa/gnl2024/variable_nls.txt";
-//      //myfile = "/home/faboussa/gnl2024/43_with_nl.txt";
-//      //myfile = "/home/faboussa/gnl2024/41_with_nl.txt";
-//      //myfile = "/home/faboussa/gnl2024/multiple_line_no_nl.txt";
-//      //myfile = "/home/faboussa/gnl2024/read_error.txt";
-//      fd = open(myfile, O_RDONLY);
-//      if (fd < 0)
-//              return (EXIT_FAILURE);
-//      printf("fd file is %d\n", fd);
-//
-//      int nb_lines = 15;
-//      int i = 0;
-//      char *line = NULL;
-//      while (i < nb_lines)
-//      {
-//              line = get_next_line(fd);
-//              if (line != NULL)
-//              {
-//                      printf(" line is %s", line);
-//                      free(line);
-//              }
-//              i++;
-//      }
-//
-//      ////    printf("first line is %s\n", gnl(fd));
-//      ////    printf("seco    nd line is %s\n", gnl(fd));
-//      ////    printf("third line is %s\n", gnl(fd));
-//      ////    printf("fourth line is %s\n", gnl(fd));
-//      ////    printf("5th line is %s\n", gnl(fd));
-//      ////    printf("6th line is %s\n", gnl(fd));
-//      ////    printf("7th line is %s\n", gnl(fd));
-//      ////    printf("8th line is %s\n", gnl(fd));
-                                                          
+
+	//      myfile = "/home/faboussa/gnl2024/giant_line.txt";
+	//      myfile = "/home/faboussa/gnl2024/giant_line_nl.txt";
+	// myfile = "/home/faboussa/gnl2024/big_line_no_nl.txt";
+	//      myfile = "/home/faboussa/gnl2024/multiple_nl.txt";
+	//myfile = "/home/faboussa/gnl2024/1char.txt";
+	//myfile = "/home/faboussa/gnl2024/bible.txt";
+	//      myfile = "/home/faboussa/gnl2024/variable_nls.txt";
+	myfile = "/home/faboussa/gnl2024/43_with_nl.txt";
+	//myfile = "/home/faboussa/gnl2024/41_with_nl.txt";
+	//myfile = "/home/faboussa/gnl2024/multiple_line_no_nl.txt";
+	//myfile = "/home/faboussa/gnl2024/read_error.txt";
+	fd = open(myfile, O_RDONLY);
+	if (fd < 0)
+		return (EXIT_FAILURE);
+
+	int nb_lines = 15;
+	int i = 0;
+	char *line = NULL;
+	while (i < nb_lines)
+	{
+		line = get_next_line(fd);
+		if (line != NULL)
+		{
+			printf(" line is %s", line);
+			free(line);
+		}
+		i++;
+	}
+	////    printf("first line is %s\n", gnl(fd));
+	////    printf("seco    nd line is %s\n", gnl(fd));
+	////    printf("third line is %s\n", gnl(fd));
+	////    printf("fourth line is %s\n", gnl(fd));
+	////    printf("5th line is %s\n", gnl(fd));
+	////    printf("6th line is %s\n", gnl(fd));
+	////    printf("7th line is %s\n", gnl(fd));
+	////    printf("8th line is %s\n", gnl(fd));
+}

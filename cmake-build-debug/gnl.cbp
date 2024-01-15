@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/faboussa/gnl2024/cmake-build-debug"/>
+				<Option working_dir="/home/faboussa/gnl/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gnl">
-				<Option output="/home/faboussa/gnl2024/cmake-build-debug/gnl" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/faboussa/gnl2024/cmake-build-debug"/>
+				<Option output="/home/faboussa/gnl/cmake-build-debug/gnl" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/faboussa/gnl/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="clang"/>
@@ -30,15 +30,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 gnl"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 gnl"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gnl/fast">
-				<Option output="/home/faboussa/gnl2024/cmake-build-debug/gnl" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/faboussa/gnl2024/cmake-build-debug"/>
+				<Option output="/home/faboussa/gnl/cmake-build-debug/gnl" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/faboussa/gnl/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="clang"/>
@@ -49,43 +49,43 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 gnl/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 gnl/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/faboussa/gnl2024/cmake-build-debug"/>
+				<Option working_dir="/home/faboussa/gnl/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/faboussa/gnl2024/cmake-build-debug"/>
+				<Option working_dir="/home/faboussa/gnl/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl2024/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/faboussa/gnl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/faboussa/gnl2024/pacodir/get_next_line.c">
+		<Unit filename="/home/faboussa/gnl/pacodir/get_next_line.c">
 			<Option target="gnl"/>
 		</Unit>
-		<Unit filename="/home/faboussa/gnl2024/pacodir/get_next_line.h">
+		<Unit filename="/home/faboussa/gnl/pacodir/get_next_line.h">
 			<Option target="gnl"/>
 		</Unit>
-		<Unit filename="/home/faboussa/gnl2024/pacodir/get_next_line_utils.c">
+		<Unit filename="/home/faboussa/gnl/pacodir/get_next_line_utils.c">
 			<Option target="gnl"/>
 		</Unit>
-		<Unit filename="/home/faboussa/gnl2024/CMakeLists.txt">
+		<Unit filename="/home/faboussa/gnl/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

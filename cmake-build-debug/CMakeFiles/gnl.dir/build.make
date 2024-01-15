@@ -53,10 +53,10 @@ RM = /tmp/CLion/bin/cmake/linux/x64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/faboussa/gnl2024
+CMAKE_SOURCE_DIR = /home/faboussa/gnl
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/faboussa/gnl2024/cmake-build-debug
+CMAKE_BINARY_DIR = /home/faboussa/gnl/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/gnl.dir/depend.make
@@ -70,32 +70,32 @@ include CMakeFiles/gnl.dir/progress.make
 include CMakeFiles/gnl.dir/flags.make
 
 CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o: CMakeFiles/gnl.dir/flags.make
-CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o: /home/faboussa/gnl2024/pacodir/get_next_line_utils.c
+CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o: /home/faboussa/gnl/pacodir/get_next_line_utils.c
 CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o: CMakeFiles/gnl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/faboussa/gnl2024/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o -MF CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o.d -o CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o -c /home/faboussa/gnl2024/pacodir/get_next_line_utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/faboussa/gnl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o -MF CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o.d -o CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o -c /home/faboussa/gnl/pacodir/get_next_line_utils.c
 
 CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/faboussa/gnl2024/pacodir/get_next_line_utils.c > CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/faboussa/gnl/pacodir/get_next_line_utils.c > CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.i
 
 CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/faboussa/gnl2024/pacodir/get_next_line_utils.c -o CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/faboussa/gnl/pacodir/get_next_line_utils.c -o CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.s
 
 CMakeFiles/gnl.dir/pacodir/get_next_line.c.o: CMakeFiles/gnl.dir/flags.make
-CMakeFiles/gnl.dir/pacodir/get_next_line.c.o: /home/faboussa/gnl2024/pacodir/get_next_line.c
+CMakeFiles/gnl.dir/pacodir/get_next_line.c.o: /home/faboussa/gnl/pacodir/get_next_line.c
 CMakeFiles/gnl.dir/pacodir/get_next_line.c.o: CMakeFiles/gnl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/faboussa/gnl2024/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/gnl.dir/pacodir/get_next_line.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/gnl.dir/pacodir/get_next_line.c.o -MF CMakeFiles/gnl.dir/pacodir/get_next_line.c.o.d -o CMakeFiles/gnl.dir/pacodir/get_next_line.c.o -c /home/faboussa/gnl2024/pacodir/get_next_line.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/faboussa/gnl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/gnl.dir/pacodir/get_next_line.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/gnl.dir/pacodir/get_next_line.c.o -MF CMakeFiles/gnl.dir/pacodir/get_next_line.c.o.d -o CMakeFiles/gnl.dir/pacodir/get_next_line.c.o -c /home/faboussa/gnl/pacodir/get_next_line.c
 
 CMakeFiles/gnl.dir/pacodir/get_next_line.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/gnl.dir/pacodir/get_next_line.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/faboussa/gnl2024/pacodir/get_next_line.c > CMakeFiles/gnl.dir/pacodir/get_next_line.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/faboussa/gnl/pacodir/get_next_line.c > CMakeFiles/gnl.dir/pacodir/get_next_line.c.i
 
 CMakeFiles/gnl.dir/pacodir/get_next_line.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/gnl.dir/pacodir/get_next_line.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/faboussa/gnl2024/pacodir/get_next_line.c -o CMakeFiles/gnl.dir/pacodir/get_next_line.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/faboussa/gnl/pacodir/get_next_line.c -o CMakeFiles/gnl.dir/pacodir/get_next_line.c.s
 
 # Object files for target gnl
 gnl_OBJECTS = \
@@ -109,7 +109,7 @@ gnl: CMakeFiles/gnl.dir/pacodir/get_next_line_utils.c.o
 gnl: CMakeFiles/gnl.dir/pacodir/get_next_line.c.o
 gnl: CMakeFiles/gnl.dir/build.make
 gnl: CMakeFiles/gnl.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/faboussa/gnl2024/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable gnl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/faboussa/gnl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable gnl"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gnl.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -121,6 +121,6 @@ CMakeFiles/gnl.dir/clean:
 .PHONY : CMakeFiles/gnl.dir/clean
 
 CMakeFiles/gnl.dir/depend:
-	cd /home/faboussa/gnl2024/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/faboussa/gnl2024 /home/faboussa/gnl2024 /home/faboussa/gnl2024/cmake-build-debug /home/faboussa/gnl2024/cmake-build-debug /home/faboussa/gnl2024/cmake-build-debug/CMakeFiles/gnl.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/faboussa/gnl/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/faboussa/gnl /home/faboussa/gnl /home/faboussa/gnl/cmake-build-debug /home/faboussa/gnl/cmake-build-debug /home/faboussa/gnl/cmake-build-debug/CMakeFiles/gnl.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/gnl.dir/depend
 

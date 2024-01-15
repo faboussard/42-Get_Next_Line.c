@@ -8,7 +8,7 @@ set(CMAKE_C_STANDARD 99)
 add_executable(gnl
        # pacodir/get_next_line.c
         #pacodir/get_next_line.h
-        pacodir/get_next_line_utils.c
-        pacodir/get_next_line.h
-        pacodir/get_next_line.c
+        get_next_line_utils.c
+        get_next_line.h
+        get_next_line.c
 )
